@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate - Hope for the Children</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .donation-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .donation-container h2 {
+      margin-bottom: 20px;
+      color: #c1272d;
+    }
+
+    .crypto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .crypto-card {
+      background: #f1f1f1;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .crypto-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .address {
+      font-family: monospace;
+      background: #fff;
+      padding: 8px;
+      border-radius: 4px;
+      word-break: break-all;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .copy-btn {
+      background: #c1272d;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+
+    .copy-msg {
+      color: green;
+      font-size: 0.8rem;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 600px) {
+      .crypto-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+
+  <div class="donation-container">
+    <h2>CREPTOBEGGER
+      <BR>Support me with crypto</BR>
+    </h2>
+    <p>I am honestly in need of financial help. I pray the spirit lead you to help because I am a total stranger.
+      in my quest to make money, I got scammed of my little saves. Right now I am helpless. My God bless you as you help me.
+       Choose a cryptocurrency below and use the address to send your help.</p>
+    
+    <div class="crypto-grid">
+      <div class="crypto-card">
+        <h3>Bitcoin (BTC)</h3>
+        <div class="address" id="btc-address">bc1qj5uq0gwjdxmwtnfyy5h6psan8wzn8uu8qlwqk7</div>
+        <button class="copy-btn" onclick="copyAddress('btc-address')">Copy Address</button>
+        <div class="copy-msg" id="msg-btc"></div>
+      </div>
+      
+      <div class="crypto-card">
+        <h3>Ethereum (ETH)</h3>
+        <div class="address" id="eth-address">0x8e3cD3D6a142D95EE479c4A0a51320Fa640459C8</div>
+        <button class="copy-btn" onclick="copyAddress('eth-address')">Copy Address</button>
+        <div class="copy-msg" id="msg-eth"></div>
+      </div>
+
+      <div class="crypto-card">
+        <h3>Binance Coin (BNB)</h3>
+        <div class="address" id="bnb-address">0x8e3cD3D6a142D95EE479c4A0a51320Fa640459C8</div>
+        <button class="copy-btn" onclick="copyAddress('bnb-address')">Copy Address</button>
+        <div class="copy-msg" id="msg-bnb"></div>
+      </div>
+
+      <div class="crypto-card">
+        <h3>USDT (TRC20)</h3>
+        <div class="address" id="usdt-address">TQznFe2qru7iNWPvudMjg3a5ie8UKos5db</div>
+        <button class="copy-btn" onclick="copyAddress('usdt-address')">Copy Address</button>
+        <div class="copy-msg" id="msg-usdt"></div>
+      </div>
+
+      <div class="crypto-card">
+        <h3>Solana (SOL)</h3>
+        <div class="address" id="sol-address">6QhSPXSyVG3nBNNm9xg5uVqG8E31xhF7WjEijgvtRmAB</div>
+        <button class="copy-btn" onclick="copyAddress('sol-address')">Copy Address</button>
+        <div class="copy-msg" id="msg-sol"></div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 crypto begger. save me from poverty and starvation.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    function copyAddress(id) {
+      const address = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(address).then(() => {
+        document.querySelectorAll('.copy-msg').forEach(el => el.textContent = '');
+        document.getElementById('msg-' + id.split('-')[0]).textContent = 'Address copied!';
+      });
+    }
+  </script>
+</body>
+</html>
